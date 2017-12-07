@@ -21,8 +21,77 @@
     </h:head>
     
     <h:body>
-        <h1>
-            EM CONSTRUÇÃO...
-        </h1>
+        <h:form>
+            <p:commandButton
+                onclick = "window.location.href = 'paginainicial.xhtml'"
+                value   = "Voltar à página inicial" />
+            <p:fieldset
+                collapsed   = "false"
+                legend      = "— Adicionar novo jogo —"
+                toggleable  = "false" >
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Nome:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                                value   = "#{jogoBean.jogoAtual.descricao}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Produtora:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                                value   = "#{jogoBean.jogoAtual.produtora}" />
+                </h:panelGrid>
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                    <p:commandButton
+                        actionListener  = "#{jogoBean.adicionarNovo}"
+                        ajax            = "false"
+                        value           = "Adicionar" />
+                    <p:commandButton
+                        value   = "Pesquisar" />
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <br />
+        <br />
+        <br />
+        <h:form>
+            <p:fieldset
+                    collapsed   = "false"
+                    legend      = "Adicionados Recentemente:"
+                    toggleable  = "false"
+                    toggleSpeed = "500" >
+                <ui:repeat
+                value   = "#{jogoBean.jogoes}"
+                var     = "jogo" >
+                    <p:fieldset
+                        collapsed   = "false"
+                        legend      = "#{jogo.nome}"
+                        toggleable  = "true"
+                        toggleSpeed = "500" >
+                        <h:panelGrid
+                            columns     = "2"
+                            cellpadding = "5">
+                            <h:outputText
+                                value   = "Dados Pessoais: " />
+                            <h:outputText
+                                value   = "#{jogo.descricao}" />
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <br />
+                </ui:repeat>
+            </p:fieldset>
+        </h:form>
     </h:body>
 </html>

@@ -20,6 +20,12 @@
     </properties>
     
     <dependencies>
+        <dependency>
+            <groupId>Priscilafdias</groupId>
+            <artifactId>LabSW-ejb</artifactId>
+            <version>1.0.0.0</version>
+            <type>ejb</type>
+        </dependency>
         <!-- implementação do JSF -->
         <dependency>
             <groupId>org.glassfish</groupId>

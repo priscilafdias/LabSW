@@ -21,8 +21,77 @@
     </h:head>
     
     <h:body>
-        <h1>
-            EM CONSTRUÇÃO...
-        </h1>
+        <h:form>
+            <p:commandButton
+                onclick = "window.location.href = 'paginainicial.xhtml'"
+                value   = "Voltar à página inicial" />
+            <p:fieldset
+                collapsed   = "false"
+                legend      = "— Adicionar novo cliente —"
+                toggleable  = "false" >
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Nome:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{clienteBean.clienteAtual.nome}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "RG:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                                value   = "#{clienteBean.clienteAtual.RG}" />
+                </h:panelGrid>
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                    <p:commandButton
+                        actionListener  = "#{clienteBean.adicionarNovo}"
+                        ajax            = "false"
+                        value           = "Adicionar" />
+                    <p:commandButton
+                        value   = "Pesquisar" />
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <br />
+        <br />
+        <br />
+        <h:form>
+            <p:fieldset
+                    collapsed   = "false"
+                    legend      = "Adicionados Recentemente:"
+                    toggleable  = "false"
+                    toggleSpeed = "500" >
+                <ui:repeat
+                value   = "#{clienteBean.clientees}"
+                var     = "cliente" >
+                    <p:fieldset
+                        collapsed   = "false"
+                        legend      = "#{cliente.nome}"
+                        toggleable  = "true"
+                        toggleSpeed = "500" >
+                        <h:panelGrid
+                            columns     = "2"
+                            cellpadding = "5">
+                            <h:outputText
+                                value   = "Dados Pessoais: " />
+                            <h:outputText
+                                value   = "#{cliente.RG}" />
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <br />
+                </ui:repeat>
+            </p:fieldset>
+        </h:form>
     </h:body>
 </html>

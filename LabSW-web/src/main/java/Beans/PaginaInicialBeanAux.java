@@ -14,12 +14,12 @@ import javax.faces.context.FacesContext;
 
 @Stateful
 @ViewScoped
-@ManagedBean (name = "paginaInicialBean")
-public  class   PaginaInicialBean    implements  Serializable    {
+@ManagedBean (name = "paginaInicialBeanAux")
+public  class   PaginaInicialBeanAux    implements  Serializable    {
     private static  final   long    serialVersionUID    = 0xEEL;
     private                 String  urlAtual;
     
-    public  PaginaInicialBean   () {
+    public  PaginaInicialBeanAux () {
         this.urlAtual   = "boasvindas.xhtml";
     }
     

@@ -4,7 +4,8 @@ package Beans;
 import          java        .io         .Serializable;
 import          javax       .ejb        .Stateful;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  * @version 1.00.00
@@ -12,7 +13,7 @@ import javax.faces.bean.ViewScoped;
  */
 
 @Stateful
-@ViewScoped
+@SessionScoped
 @ManagedBean (name = "paginaInicialBean")
 public  class   PaginaInicialBean    implements  Serializable    {
     private static  final   long    serialVersionUID    = 0xEEL;
@@ -28,5 +29,6 @@ public  class   PaginaInicialBean    implements  Serializable    {
     
     public  void    setUrlAtual (String urlAtual) {
         this.urlAtual   = urlAtual + ".xhtml";
+        FacesContext.getCurrentInstance().renderResponse();
     }
 }

@@ -14,15 +14,84 @@
     
     <h:head>
         <title>
-            Filme
+            Ator
         </title>
         <meta http-equiv    = "Content-Type"    content = "text/html; charset=UTF-8"                />
         <meta name          = "viewport"        content = "width=device-width, initial-scale=1.0"   />
     </h:head>
     
     <h:body>
-        <h1>
-            EM CONSTRUÇÃO...
-        </h1>
+        <h:form>
+            <p:commandButton
+                onclick = "window.location.href = 'paginainicial.xhtml'"
+                value   = "Voltar à página inicial" />
+            <p:fieldset
+                collapsed   = "false"
+                legend      = "— Adicionar novo filme —"
+                toggleable  = "false" >
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Nome:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                                value   = "#{filmeBean.filmeAtual.descricao}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Classificação:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                                value   = "#{filmeBean.filmeAtual.classificacao}" />
+                </h:panelGrid>
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                    <p:commandButton
+                        actionListener  = "#{filmeBean.adicionarNovo}"
+                        ajax            = "false"
+                        value           = "Adicionar" />
+                    <p:commandButton
+                        value   = "Pesquisar" />
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <br />
+        <br />
+        <br />
+        <h:form>
+            <p:fieldset
+                    collapsed   = "false"
+                    legend      = "Adicionados Recentemente:"
+                    toggleable  = "false"
+                    toggleSpeed = "500" >
+                <ui:repeat
+                value   = "#{filmeBean.filmees}"
+                var     = "filme" >
+                    <p:fieldset
+                        collapsed   = "false"
+                        legend      = "#{filme.descricao}"
+                        toggleable  = "true"
+                        toggleSpeed = "500" >
+                        <h:panelGrid
+                            columns     = "2"
+                            cellpadding = "5">
+                            <h:outputText
+                                value   = "Classificacao: " />
+                            <h:outputText
+                                value   = "#{filme.classificacao}" />
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <br />
+                </ui:repeat>
+            </p:fieldset>
+        </h:form>
     </h:body>
 </html>
