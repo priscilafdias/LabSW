@@ -51,8 +51,62 @@
                             value   = "RG:" />
                         <p:inputText
                             style   = "
-                                width:  70vw;"
+                                width:  35vw;"
                                 value   = "#{clienteBean.clienteAtual.RG}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Endereço: " />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{cliente.endereco}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Número: " />
+                        <p:inputText
+                            style   = "
+                                width:  10vw;"
+                            value   = "#{cliente.numero}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Bairro: " />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{cliente.bairro}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Cidade: " />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{cliente.cidade}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "UF: " />
+                        <p:inputText
+                            style   = "
+                                width:  10vw;"
+                            value   = "#{cliente.UF}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Email: " />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{cliente.email}" />
                 </h:panelGrid>
                 <h:panelGrid
                     columns     = "2"
@@ -87,9 +141,33 @@
                             columns     = "2"
                             cellpadding = "5">
                             <h:outputText
-                                value   = "Dados Pessoais: " />
+                                value   = "RG: " />
                             <h:outputText
                                 value   = "#{cliente.RG}" />
+                            <h:outputText
+                                value   = "Endereço: " />
+                            <h:outputText
+                                value   = "#{cliente.endereco}" />
+                            <h:outputText
+                                value   = "Número: " />
+                            <h:outputText
+                                value   = "#{cliente.numero}" />
+                            <h:outputText
+                                value   = "Bairro: " />
+                            <h:outputText
+                                value   = "#{cliente.bairro}" />
+                            <h:outputText
+                                value   = "Cidade: " />
+                            <h:outputText
+                                value   = "#{cliente.cidade}" />
+                            <h:outputText
+                                value   = "UF: " />
+                            <h:outputText
+                                value   = "#{cliente.UF}" />
+                            <h:outputText
+                                value   = "Email: " />
+                            <h:outputText
+                                value   = "#{cliente.email}" />
                         </h:panelGrid>
                     </p:fieldset>
                     <br />
