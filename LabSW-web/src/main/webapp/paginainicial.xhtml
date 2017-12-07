@@ -1,0 +1,143 @@
+<?xml
+    version     = "1.0"
+    encoding    = "UTF-8" ?>
+<!--    .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   -->
+    
+<!DOCTYPE html>
+
+<html
+    xmlns       = "http://www.w3.org/1999/xhtml"
+    xmlns:h     = "http://java.sun.com/jsf/html"
+    xmlns:f     = "http://java.sun.com/jsf/core"
+    xmlns:p     = "http://primefaces.org/ui"    
+    xmlns:ui    = "http://java.sun.com/jsf/facelets"    >
+    
+    <h:head>
+        <title>
+            Página Inicial
+        </title>
+        <meta http-equiv    = "Content-Type"    content = "text/html; charset=UTF-8"                />
+        <meta name          = "viewport"        content = "width=device-width, initial-scale=1.0"   />
+        <style>
+            body {
+                background-color:   seashell;
+                overflow:           hidden;
+            }
+        </style>
+    </h:head>
+    
+    <h:body>
+        <audio
+            controls    = "true"
+            autoplay    = "true">
+            <source
+                src = "#{resource['bgms/The_Kyoto_Connection_Painting_With_Lights.mp3']}"
+                type = "audio/mpeg" />
+        </audio>
+        <p:layout
+            style   = "
+                overflow:   hidden;
+                min-height: 100vh;
+                min-width:  100vw" >
+            <p:layoutUnit
+                position    = "north"
+                resizable   = "false"
+                style       = "
+                    background-color:   lightgray;
+                    overflow:           hidden;
+                    min-height:         24vh;
+                    max-height:         24vh;
+                    min-width:          96vw;
+                    max-width:          96vw" >
+                <p:graphicImage
+                    library = "images"
+                    name    = "Banner_Exemplo.jpg"
+                    style   = "
+                        overflow:   hidden;
+                        height:     22vh;
+                        max-width:  100%
+                    "/>
+            </p:layoutUnit>
+            <p:layoutUnit
+                position    = "west"
+                resizable   = "false"
+                style       = "
+                    background-color:   lightgray;
+                    overflow:           hidden;
+                    min-height:         66vh;
+                    max-height:         66vh;
+                    min-width:          20vw;
+                    max-width:          20vw">
+                <h:form>
+                    <p:menu
+                        style   = "
+                            overflow:   hidden;
+                            min-height: 95%;
+                            max-height: 95%;
+                            min-width:  95%;
+                            max-width:  95%">
+                        <p:submenu
+                            label   = "CADASTRO">
+                            <p:menuitem
+                                value   = "Acervo" />
+                            <p:menuitem
+                                action  = "#{paginaInicialBean.setUrlAtual('ator')}"
+                                onclick = "window.location.href = 'ator.xhtml'"
+                                value   = "Atores" />
+                            <p:menuitem
+                                action  = "#{paginaInicialBean.setUrlAtual('cliente')}"
+                                onclick = "window.location.href = 'cliente.xhtml'"
+                                value   = "Clientes" />
+                            <p:menuitem
+                                action  = "#{paginaInicialBean.setUrlAtual('filme')}"
+                                onclick = "window.location.href = 'filme.xhtml'"
+                                value   = "Filmes" />
+                            <p:menuitem
+                                action  = "#{paginaInicialBean.setUrlAtual('jogo')}"
+                                onclick = "window.location.href = 'jogo.xhtml'"
+                                value   = "Jogos" />
+                            <p:menuitem
+                                action  = "#{paginaInicialBean.setUrlAtual('produtora')}"
+                                onclick = "window.location.href = 'produtora.xhtml'"
+                                value   = "Produtoras" />
+                        </p:submenu>
+                        <p:submenu
+                            label   = "SERVIÇOS">
+                            <p:menuitem
+                                action  = "#{paginaInicialBean.setUrlAtual('emprestimo')}"
+                                onclick = "window.location.href = 'emprestimo.xhtml'"
+                                value   = "Empréstimos" />
+                            <p:menuitem
+                                value   = "Devoluções" />
+                            <p:menuitem
+                                value   = "Entrar" />
+                            <p:menuitem
+                                value   = "Inscrever-se" />
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit
+                position    = "center"
+                resizable   = "false"
+                style       = "
+                    background-color:   lightgray;
+                    overflow:           hidden;
+                    min-height:         66vh;
+                    max-height:         66vh;
+                    min-width:          75vw;
+                    max-width:          75vw">
+                <h:form
+                    style   = "
+                    overflow:           hidden;
+                    min-height:         65vh;
+                    max-height:         65vh;
+                    min-width:          74vw;
+                    max-width:          74vw" >
+                        <ui:include
+                            src = "#{paginaInicialBean.urlAtual}" />
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>

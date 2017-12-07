@@ -1,0 +1,99 @@
+<?xml
+    version     = "1.0"
+    encoding    = "UTF-8" ?>
+<!--    .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   -->
+    
+<!DOCTYPE html>
+
+<html
+    xmlns       = "http://www.w3.org/1999/xhtml"
+    xmlns:h     = "http://java.sun.com/jsf/html"
+    xmlns:f     = "http://java.sun.com/jsf/core"
+    xmlns:p     = "http://primefaces.org/ui"    
+    xmlns:ui    = "http://java.sun.com/jsf/facelets"    >
+    
+    <h:head>
+        <title>
+            Produtora
+        </title>
+        <meta http-equiv    = "Content-Type"    content = "text/html; charset=UTF-8"                />
+        <meta name          = "viewport"        content = "width=device-width, initial-scale=1.0"   />
+        <style>
+            body {
+                background-color:   floralwhite;
+            }
+        </style>
+    </h:head>
+    
+    <h:body>
+        <h:form>
+            <p:fieldset
+                collapsed   = "false"
+                legend      = "— Adicionar nova produtora —"
+                toggleable  = "false" >
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Nome:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{produtoraBean.produtoraAtual.nome}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Descrição:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{produtoraBean.produtoraAtual.descricao}" />
+                </h:panelGrid>
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                    <p:commandButton
+                        actionListener  = "#{produtoraBean.adicionarNovo}"
+                        ajax            = "false"
+                        value           = "Adicionar" />
+                    <p:commandButton
+                        value   = "Pesquisar" />
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <br />
+        <br />
+        <br />
+        <h:form>
+            <p:fieldset
+                    collapsed   = "false"
+                    legend      = "Adicionados Recentemente:"
+                    toggleable  = "false"
+                    toggleSpeed = "500" >
+                <ui:repeat
+                value   = "#{produtoraBean.produtoras}"
+                var     = "produtora" >
+                    <p:fieldset
+                        collapsed   = "false"
+                        legend      = "#{produtora.nome}"
+                        toggleable  = "true"
+                        toggleSpeed = "500" >
+                        <h:panelGrid
+                            columns     = "2"
+                            cellpadding = "5">
+                            <h:outputText
+                                value   = "Descrição: " />
+                            <h:outputText
+                                value   = "#{produtora.descricao}" />
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <br />
+                </ui:repeat>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+</html>

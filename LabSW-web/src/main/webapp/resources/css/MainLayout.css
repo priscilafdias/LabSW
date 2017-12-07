@@ -1,0 +1,43 @@
+body {
+    background-color:   #000000;
+    background-repeat:  no-repeat;
+    background-size:    100vw 100vh;
+    overflow:           hidden;
+}
+.richButton:hover:enabled {
+    /* IE10 */
+    background:         -ms-linear-gradient (
+        top, #FFFFFF 0%, #CCCCCC 100%
+    );
+    /* Mozilla Firefox */
+    background:         -moz-linear-gradient (
+        top, #FFFFFF 0%, #CCCCCC 100%
+    );
+    /* Opera */
+    background:         -o-linear-gradient (
+        top, #FFFFFF 0%, #CCCCCC 100%
+    );
+    /* Webkit (Safari/Chrome 10) */
+    background:         -webkit-gradient (
+        linear, left top, left bottom, color-stop(
+            0, #FFFFFF
+        ), color-stop(
+            1, #CCCCCC
+        )
+    );
+    /* Webkit (Chrome 11+) */
+    background:         -webkit-linear-gradient (
+        top, #FFFFFF 0%, #CCCCCC 100%
+    );
+    /* W3C Markup, IE10 Release Preview */
+    background:         linear-gradient (
+        to bottom, #FFFFFF 0%, #CCCCCC 100%
+    );
+}
+.ui-fieldset .ui-fieldset-legend {
+    min-width:          4vw;
+    padding:            4px 4px;
+}
+.ui-layout-unit-content {
+    background:         transparent;
+}

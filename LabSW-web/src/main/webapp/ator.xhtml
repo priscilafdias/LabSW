@@ -1,0 +1,94 @@
+<?xml
+    version     = "1.0"
+    encoding    = "UTF-8" ?>
+<!--    .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   -->
+    
+<!DOCTYPE html>
+
+<html
+    xmlns       = "http://www.w3.org/1999/xhtml"
+    xmlns:h     = "http://java.sun.com/jsf/html"
+    xmlns:f     = "http://java.sun.com/jsf/core"
+    xmlns:p     = "http://primefaces.org/ui"    
+    xmlns:ui    = "http://java.sun.com/jsf/facelets"    >
+    
+    <h:head>
+        <title>
+            Ator
+        </title>
+        <meta http-equiv    = "Content-Type"    content = "text/html; charset=UTF-8"                />
+        <meta name          = "viewport"        content = "width=device-width, initial-scale=1.0"   />
+    </h:head>
+    
+    <h:body>
+        <h:form>
+            <p:fieldset
+                collapsed   = "false"
+                legend      = "— Adicionar novo ator —"
+                toggleable  = "false" >
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Nome:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{atorBean.atorAtual.nome}" />
+                        <p:outputLabel
+                            style   = "
+                                display:    block;
+                                width:      18vw;"
+                            value   = "Descrição:" />
+                        <p:inputText
+                            style   = "
+                                width:  70vw;"
+                            value   = "#{atorBean.atorAtual.descricao}" />
+                </h:panelGrid>
+                <h:panelGrid
+                    columns     = "2"
+                    cellpadding = "5">
+                    <p:commandButton
+                        actionListener  = "#{atorBean.adicionarNovo}"
+                        ajax            = "false"
+                        value           = "Adicionar" />
+                    <p:commandButton
+                        value   = "Pesquisar" />
+                </h:panelGrid>
+            </p:fieldset>
+        </h:form>
+        <br />
+        <br />
+        <br />
+        <h:form>
+            <p:fieldset
+                    collapsed   = "false"
+                    legend      = "Adicionados Recentemente:"
+                    toggleable  = "false"
+                    toggleSpeed = "500" >
+                <ui:repeat
+                value   = "#{atorBean.atores}"
+                var     = "ator" >
+                    <p:fieldset
+                        collapsed   = "false"
+                        legend      = "#{ator.nome}"
+                        toggleable  = "true"
+                        toggleSpeed = "500" >
+                        <h:panelGrid
+                            columns     = "2"
+                            cellpadding = "5">
+                            <h:outputText
+                                value   = "Dados Pessoais: " />
+                            <h:outputText
+                                value   = "#{ator.descricao}" />
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <br />
+                </ui:repeat>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+</html>
